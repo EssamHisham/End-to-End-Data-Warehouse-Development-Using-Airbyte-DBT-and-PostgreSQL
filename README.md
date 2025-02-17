@@ -18,7 +18,7 @@ Here’s a polished **GitHub project description** for your data warehouse proje
 ### 🚀 Overview  
 This project demonstrates a **production-grade data pipeline** that ingests raw data from SQL Server, transforms it into an analytics-ready star schema, and enforces rigorous data quality checks. Built for scalability and maintainability, it serves as a blueprint for modern ELT/ETL workflows.  
 
-### 🔥 Key Features  
+###  Key Features  
 - **Automated Data Ingestion**: Airbyte pipelines sync data from SQL Server to PostgreSQL with CDC and incremental loading.  
 - **Modern Transformations**: DBT models materialize staging tables, dimensions (`dim_customer`, `dim_product`), and a fact table (`fact_sales`).  
 - **Data Quality Assurance**: Built-in tests for uniqueness, null values, and referential integrity.  
