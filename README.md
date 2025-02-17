@@ -101,14 +101,7 @@ Analytics & BI Tools
 
 ---
 
-### 🤝 Contributing  
-PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.  
-
----
-
 📜 **License**: MIT  
-📧 **Contact**: [Your Email] | [LinkedIn Profile]  
-
 ---
 
 **Why This Works**:  
