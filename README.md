@@ -47,7 +47,7 @@ DBT Transformations → Staging → Dimensions/Facts (Mart Schema)
 Analytics & BI Tools  
 ```  
 
-![Architecture Diagram](link_to_diagram_image.png) *Example architecture diagram*  
+![Architecture Diagram](https://github.com/EssamHisham/End-to-End-Data-Warehouse-Development-Using-Airbyte-DBT-and-PostgreSQL/blob/main/DataFlow%20Diagram.png?raw=true) *Example architecture diagram*  
 
 ---
 
