@@ -90,7 +90,7 @@ Analytics & BI Tools
 ### 🌟 Data Quality & Documentation  
 - **Tests**: Column uniqueness, non-null constraints, and foreign key relationships.  
 - **Docs**: Run `dbt docs generate` to visualize lineage:  
-  ![DBT Lineage](link_to_lineage_screenshot.png)  
+  ![DBT Lineage](https://github.com/EssamHisham/End-to-End-Data-Warehouse-Development-Using-Airbyte-DBT-and-PostgreSQL/blob/main/dl.png?raw=true)  
 
 ---
 
