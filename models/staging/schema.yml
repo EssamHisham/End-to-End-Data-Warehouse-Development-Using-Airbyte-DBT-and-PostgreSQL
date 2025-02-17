@@ -1,0 +1,655 @@
+version: 2
+
+models:  
+  - name: stg_address
+    description: "Staging table for address data."
+    columns:
+      - name: city
+        data_type: character varying
+        description: "City Name"
+
+      - name: addressid
+        data_type: bigint
+        description: "Address id"
+        tests:
+          - unique
+          - not_null
+      - name: postalcode
+        data_type: character varying
+        description: "Zip code"
+
+      - name: addressline1
+        data_type: character varying
+        description: "Address Line 1"
+
+      - name: addressline2
+        data_type: character varying
+        description: "Address Line 2"
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: "Address Modified Date"
+
+      - name: spatiallocation
+        data_type: character varying
+        description: "Spatial Location"
+
+      - name: stateprovinceid
+        data_type: bigint
+        description: "Address State"
+        tests:
+          - unique
+          - not_null
+  - name: stg_customer
+    description: "Staging table for customer data."
+    columns:
+      - name: storeid
+        data_type: bigint
+        description: "Identifier for the store where the customer is associated."
+        tests:
+          - unique
+          - not_null
+      - name: rowguid
+        data_type: uuid
+        description: "Globally unique identifier."
+
+      - name: personid
+        data_type: bigint
+        description: "Identifier for the person associated with the customer."
+        tests:
+          - unique
+          - not_null
+      - name: customerid
+        data_type: bigint
+        description: "Unique identifier for the customer."
+        tests:
+          - unique
+          - not_null
+      - name: territoryid
+        data_type: bigint
+        description: "Reference to the sales territory associated with the customer."
+        tests:
+          - unique
+          - not_null
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: "Date when the customer record was last modified."
+
+      - name: accountnumber
+        data_type: character varying
+        description: "Account number of the customer."
+
+  - name: stg_productcategory
+    description: "Staging table for product category data."
+    columns:
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: productcategory
+        data_type: character varying
+        description: ""
+
+      - name: productcategoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+  - name: stg_countryregion
+    description: "Staging table for country and region data."
+    columns:
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: countryregioncode
+        data_type: character varying
+        description: ""
+
+      - name: countryregionname
+        data_type: character varying
+        description: ""
+  - name: stg_product
+    description: "Staging table for product data."
+    columns:
+      - name: size
+        data_type: character varying
+        description: ""
+
+      - name: class
+        data_type: character varying
+        description: ""
+
+      - name: color
+        data_type: character varying
+        description: ""
+
+      - name: style
+        data_type: character varying
+        description: ""
+
+      - name: weight
+        data_type: numeric
+        description: ""
+
+      - name: makeflag
+        data_type: boolean
+        description: ""
+
+      - name: listprice
+        data_type: numeric
+        description: ""
+
+      - name: productid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: productline
+        data_type: character varying
+        description: ""
+
+      - name: productname
+        data_type: character varying
+        description: ""
+
+      - name: sellenddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: reorderpoint
+        data_type: bigint
+        description: ""
+
+      - name: standardcost
+        data_type: numeric
+        description: ""
+
+      - name: productnumber
+        data_type: character varying
+        description: ""
+
+      - name: sellstartdate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: productmodelid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: discontinueddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: safetystocklevel
+        data_type: bigint
+        description: ""
+
+      - name: daystomanufacture
+        data_type: bigint
+        description: ""
+
+      - name: finishedgoodsflag
+        data_type: boolean
+        description: ""
+
+      - name: sizeunitmeasurecode
+        data_type: character varying
+        description: ""
+
+      - name: productsubcategoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: weightunitmeasurecode
+        data_type: character varying
+        description: ""
+
+  - name: stg_productsubcategory
+    description: "Staging table for product subcategory data."
+    columns:
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: productcategoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: productsubcategory
+        data_type: character varying
+        description: ""
+
+      - name: productsubcategoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null   
+  - name: stg_salesorderheader
+    description: "Staging table for sales order header data."
+    columns:
+      - name: customerid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: status
+        data_type: bigint
+        description: ""
+
+      - name: taxamt
+        data_type: numeric
+        description: ""
+
+      - name: comment
+        data_type: character varying
+        description: ""
+
+      - name: duedate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: freight
+        data_type: numeric
+        description: ""
+
+      - name: shipdate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: subtotal
+        data_type: numeric
+        description: ""
+
+      - name: totaldue
+        data_type: numeric
+        description: ""
+
+      - name: orderdate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: territoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: creditcardid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: salesorderid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: shipmethodid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: accountnumber
+        data_type: character varying
+        description: ""
+
+      - name: salespersonid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: currencyrateid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: revisionnumber
+        data_type: bigint
+        description: ""
+
+      - name: billtoaddressid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: onlineorderflag
+        data_type: character varying
+        description: ""
+
+      - name: shiptoaddressid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: salesordernumber
+        data_type: character varying
+        description: ""
+
+      - name: purchaseordernumber
+        data_type: character varying
+        description: ""
+
+      - name: creditcardapprovalcode
+        data_type: character varying
+        description: ""
+  - name: stg_salesreason
+    description: "Staging table for sales reason data."
+    columns:
+      - name: reasontype
+        data_type: character varying
+        description: ""
+
+      - name: salesreason
+        data_type: character varying
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: salesreasonid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+  - name: stg_salesterritory
+    description: "Staging table for sales territory data."
+    columns:
+      - name: group
+        data_type: character varying
+        description: ""
+
+      - name: costytd
+        data_type: numeric
+        description: ""
+
+      - name: salesytd
+        data_type: numeric
+        description: ""
+
+      - name: territoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: costlastyear
+        data_type: numeric
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: saleslastyear
+        data_type: numeric
+        description: ""
+
+      - name: countryregioncode
+        data_type: character varying
+        description: ""
+
+      - name: salesterritoryname
+        data_type: character varying
+        description: ""
+  - name: stg_stateprovince
+    description: "Staging table for state and province data."
+    columns:
+      - name: territoryid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: stateprovinceid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: statprovincename
+        data_type: character varying
+        description: ""
+
+      - name: countryregioncode
+        data_type: character varying
+        description: ""
+
+      - name: stateprovincecode
+        data_type: character varying
+        description: ""
+
+      - name: isonlystateprovinceflag
+        data_type: boolean
+        description: ""
+  - name: stg_store
+    description: "Staging table for store data."
+    columns:
+      - name: storename
+        data_type: character varying
+        description: ""
+
+      - name: demographics
+        data_type: character varying
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: salespersonid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: businessentityid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+  - name: stg_salesorderheadersalesreason
+    description: "Staging table for sales order header and sales reason relationship data."
+    columns:
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: salesorderid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: salesreasonid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+  - name: stg_salesorderdetail
+    description: "Staging table for sales order detail data."
+    columns:
+      - name: orderqty
+        data_type: bigint
+        description: ""
+
+      - name: linetotal
+        data_type: numeric
+        description: ""
+
+      - name: productid
+        data_type: bigint
+        description: ""
+
+      - name: unitprice
+        data_type: numeric
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: salesorderid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: specialofferid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: unitpricediscount
+        data_type: numeric
+        description: ""
+
+      - name: salesorderdetailid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: carriertrackingnumber
+        data_type: character varying
+        description: ""
+  - name: stg_person
+    description: "Staging table for person data."
+    columns:
+      - name: title
+        data_type: character varying
+        description: ""
+
+      - name: gender
+        data_type: character varying
+        description: ""
+
+      - name: suffix
+        data_type: character varying
+        description: ""
+
+      - name: lastname
+        data_type: character varying
+        description: ""
+
+      - name: birthdate
+        data_type: character varying
+        description: ""
+
+      - name: education
+        data_type: character varying
+        description: ""
+
+      - name: firstname
+        data_type: character varying
+        description: ""
+
+      - name: namestyle
+        data_type: boolean
+        description: ""
+
+      - name: middlename
+        data_type: character varying
+        description: ""
+
+      - name: occupation
+        data_type: character varying
+        description: ""
+
+      - name: persontype
+        data_type: character varying
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: maritalstatus
+        data_type: character varying
+        description: ""
+
+      - name: totalchildren
+        data_type: bigint
+        description: ""
+
+      - name: emailpromotion
+        data_type: bigint
+        description: ""
+
+      - name: houseownerflag
+        data_type: character varying
+        description: ""
+
+      - name: commutedistance
+        data_type: character varying
+        description: ""
+
+      - name: numbercarsowned
+        data_type: bigint
+        description: ""
+
+      - name: businessentityid
+        data_type: bigint
+        description: ""
+        tests:
+          - unique
+          - not_null
+      - name: datefirstpurchase
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: numberchildrenathome
+        data_type: bigint
+        description: ""
+  - name: stg_entityaddress
+    description: ""
+    columns:
+      - name: addressid
+        data_type: bigint
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp without time zone
+        description: ""
+
+      - name: addresstypeid
+        data_type: bigint
+        description: ""
+
+      - name: businessentityid
+        data_type: bigint
+        description: ""
