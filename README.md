@@ -110,8 +110,6 @@ Analytics & BI Tools
 - **Call to Action**: Clear roadmap and contribution guidelines invite collaboration.  
 - **Professional Polish**: Structured sections, minimal emojis, and a focus on outcomes.  
 
-Add badges (e.g., `dbt`, `Airbyte`, `PostgreSQL`) for extra flair! 🛠️  
-
 --- 
 
 Let me know if you’d like to tweak the tone or add specific details!
